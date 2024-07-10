@@ -1,0 +1,95 @@
+{% extends 'base.html' %} {%load static%} {%block title%} 
+Signup{%endblock title%}
+{%block body%}
+<section class="min-h-screen container mx-auto p-12 m-6">
+  <div class="flex flex-col justify-center">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+      <img
+        src="{% static 'images/logo.png'%}"
+        class="mx-auto h-24 w-auto"
+        alt=""
+      />
+      <h2
+        class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-secondary-color"
+      >
+        Register new account
+      </h2>
+    </div>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form action="." class="space-y-6" method="post">
+      {%csrf_token%}
+      <div>
+        <label
+          for="username"
+          class="block text-sm font-medium leading-6 text-gray-900"
+          >Username:</label
+        >
+        <div class="mt-2">
+          <input
+            id="username"
+            name="username"
+            type="text"
+            required
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </div>
+      </div>
+
+      <div>
+        <div class="flex items-center justify-between">
+          <label
+            for="password1"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Password</label
+          >
+          <div class="text-sm"></div>
+        </div>
+        <div class="mt-2">
+          <input
+            id="password1"
+            name="password1"
+            type="password"
+            required
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </div>
+      </div>
+
+      <div>
+        <div class="flex items-center justify-between">
+          <label
+            for="password2"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Password</label
+          >
+          <div class="text-sm"></div>
+        </div>
+        <div class="mt-2">
+          <input
+            id="password2"
+            name="password2"
+            type="password"
+            required
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </div>
+      </div>
+      {%if form.errors%}
+      <div class="py-6 px-8 bg-red-600 text-white rounded-lg">
+        <p>Credentials are not correct</p>
+      </div>
+
+      {%endif%}
+      <div>
+        <button
+          class="w-full p-3 bg-primary-color text-white font-bold rounded-xl"
+        >
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+{%endblock body%}

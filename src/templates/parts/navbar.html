@@ -1,0 +1,48 @@
+<nav class="py-8 px-8 flex flex-row items-center justify-between">
+  <div>
+    <a
+      href="{% url 'app:index' %}"
+      class="text-primary-color font-montserrat font-bold text-xl "
+    >
+      Noodle
+    </a>
+  </div>
+
+  <div
+    class="space-x-3 md:space-x-5 lg:space-x-7 items-center font-palanquin hidden sm:flex font-semibold text-secondary-color text-base"
+  >
+    <a href="{% url 'creator:creators' %}" class="hover:text-primary-color">
+      Creators
+    </a>
+
+    {% if not request.user.is_authenticated %}
+    <a class="hover:text-primary-color" href="{% url 'creator:login' %}">
+      Log in
+    </a>
+    <a class="hover:text-primary-color" href="{% url 'creator:signup' %}">
+      Sign up
+    </a>
+    {% endif %} {% if request.user.is_authenticated %}
+    <a href="{% url 'creator:mypage' %}" class="hover:text-primary-color">
+      My page
+    </a>
+    {% endif %}
+  </div>
+
+  <div class="block sm:hidden">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  </div>
+</nav>

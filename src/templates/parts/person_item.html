@@ -1,0 +1,35 @@
+<div
+  class="flex flex-wrap justify-center m-3 shadow-xl hover:shadow-lg hover:scale-110 transition-all max-w-96"
+>
+  <div class="p-2 max-w-sm">
+    <div class="flex-rounded-lg h-full p-3 flex-col">
+      <div class="rounded-xl object-cover overflow-hidden">
+        <img src="{{creator.image.url}}" alt="Photo" />
+      </div>
+      <div class="flex flex-col justify-between mt-3 overflow-hidden">
+        <h4 class="leading-relaxed text-base font-bold text-secondary-color">
+          {{creator.title}}
+        </h4>
+        <p class="text-base text-secondary-color line-clamp-3">
+          {{creator.description}}
+        </p>
+      </div>
+      <a
+        href="{%url 'creator:creator' creator.id%}"
+        class="mt-3 text-secondary-color hover:text-primary-color inline-flex items-center"
+        >Learn More
+        <svg
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          class="w-4 h-4 ml-2"
+          viewBox="0 0 24 24"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>

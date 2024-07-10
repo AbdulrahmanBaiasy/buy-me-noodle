@@ -1,0 +1,76 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Edit{%endblock %}
+{% block body %}
+<section class="min-h-screen container mx-auto p-12">
+  <div class="flex flex-col justify-center">
+    <h2
+      class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-secondary-color"
+    >
+      Fill your information
+    </h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form action="." class="space-y-6" method="POST" enctype="multipart/form-data">
+      {%csrf_token%}
+
+      <div>
+        <label
+          for="title"
+          class="block text-sm font-medium leading-6 text-gray-900"
+          >Title:</label
+        >
+        <div class="mt-2">
+          <input
+            id="title"
+            name="title"
+            type="text"
+            required
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </div>
+      </div>
+      <div>
+        <label
+          for="description"
+          class="block text-sm font-medium leading-6 text-gray-900"
+          >Description:</label
+        >
+        <div class="mt-2">
+          <textarea
+            id="description"
+            name="description"
+            rows="4"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Write your thoughts here..."
+          ></textarea>
+        </div>
+      </div>
+
+      <div>
+        <label for="image" class="sr-only">Choose file</label>
+        <input
+          type="file"
+          name="image"
+          id="image"
+          required
+          class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+        />
+      </div>
+      {%if form.errors%}
+      <div class="py-6 px-8 bg-red-600 text-white rounded-lg">
+        <p>Credentials are not correct {{form.errors}}</p>
+      </div>
+
+      {%endif%}
+      <div>
+        <button
+          class="w-full p-3 bg-primary-color text-white font-bold rounded-xl"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+{% endblock %}
