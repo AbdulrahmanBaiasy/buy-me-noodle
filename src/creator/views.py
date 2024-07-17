@@ -4,7 +4,6 @@ from .models import Creator
 from .forms import CreatorForm
 from django.contrib.auth.decorators import login_required
 
-
 def signup(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
@@ -16,7 +15,6 @@ def signup(request):
 
     context = {"form": form}
     return render(request, "pages/creator/signup.html", context)
-
 
 @login_required
 def mypage(request):
@@ -33,7 +31,6 @@ def creators(request):
     creators = Creator.objects.all()
     context = {"creators": creators}
     return render(request, "pages/creator/creators.html", context)
-
 
 def creator(request, pk):
     creator = Creator.objects.get(pk=pk)
@@ -56,7 +53,7 @@ def support_success(request, creator_id, support_id):
 def edit(request):
     try:
         creator = request.user.creator
-        if reqeust.method == "POST":
+        if request.method == "POST":
             form = CreatorForm(request.POST, request.FILES, instance=creator)
 
             if form.is_valid():

@@ -1,96 +1,81 @@
 {% extends 'base.html' %} {% load static %} {% block title%}Welcome{%endblock%}
 {% block body %}
 
-
 <!--Hero-->
-<section
-  id="hero"
-  class=" container mx-auto flex flex-col xl:flex-row md:flex-row min-h-screen"
->
-  <div
-    class="relative flex flex-1 flex-col xl:size-1/2 space-y-9 text-secondary-color"
-  >
-    <p class="font-bold text-3xl lg:text-5xl">
-      Fuel Your Day
-      <br />
-      Fund Their Dream
-      <br />
-      <span class="text-primary-color"> Buy Me a Noodle! </span>
-    </p>
-    <p class="max-w-96">Show your support with a delicious pick-me-up. Every bowl counts!</p>
-    <p class="text-sm md:text-sm lg:text-base italic font-light max-w-96">
-      We all know that feeling - that rumble in your tummy, the need for a
-      satisfying and energizing meal. But what if that meal could also help
-      someone chase their dreams? With Buy Me a Noodle, you can fuel your day
-      and empower fellow hustlers, creatives, and go-getters!
-    </p>
-    <button
-      class="rounded-full bg-primary-color w-36 p-3 mt-16 text-white font-montserrat transition-all hover:shadow-md hover:scale-105"
+<section id="hero" class="container mx-auto p-12 min-h-screen">
+  <div class="relative flex flex-col xl:flex-row md:flex-row">
+    <div
+      class="flex flex-1 flex-col xl:size-1/2 space-y-9 text-secondary-color"
     >
-      Register Now!
-    </button>
-  </div>
-  <div class="sm:block md:object-center size-1/3 hidden">
-    <img src="{%static 'images/logo.png'%}" alt="logo" />
+      <p class="font-bold text-3xl lg:text-5xl">
+        Fuel Your Day
+        <br />
+        Fund Their Dream
+        <br />
+        <span class="text-primary-color"> Buy Me a Noodle! </span>
+      </p>
+      <p class="max-w-96">
+        Show your support with a delicious pick-me-up. Every bowl counts!
+      </p>
+      <p class="text-sm md:text-sm lg:text-base italic font-light max-w-96">
+        We all know that feeling - that rumble in your tummy, the need for a
+        satisfying and energizing meal. But what if that meal could also help
+        someone chase their dreams? With Buy Me a Noodle, you can fuel your day
+        and empower fellow hustlers, creatives, and go-getters!
+      </p>
+      <a
+        href="{% url 'creator:signup' %}"
+        class="rounded-full bg-primary-color w-36 p-3 mt-16 text-white font-montserrat transition-all hover:shadow-md hover:scale-105 text-center"
+      >
+        Register Now!
+      </a>
+    </div>
+
+    <div class="sm:block md:object-center size-1/3 hidden">
+      <div
+      >
+        <img src="{%static 'images/logo.png'%}" alt="logo" />
+    </div>
   </div>
 </section>
 
-
-
 <!--People-->
-<section id="latest_people" class="container mx-auto min-h-screen">
+<section id="latest_people" class="container mx-auto p-12 min-h-screen">
   <p class="text-2xl font-montserrat text-secondary-color font-bold">
     Latest People Joined
   </p>
-  <div
-    class="flex flex-col items-center space-y-3 "
-  >
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-5 lg:gap-4 p-12">
+  <div class="flex flex-col items-center space-y-3">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-5 lg:gap-4 p-12"
+    >
       {%for creator in creator%} {%include 'parts/person_item.html'%} {%endfor%}
     </div>
-    <a href="{%url 'creator:creators'%}"
-    class = "underline text-secondary-color self-end m-4"
+    <a
+      href="{%url 'creator:creators'%}"
+      class="underline text-secondary-color self-end m-4"
     >
-    More
+      More
     </a>
   </div>
-
 </section>
-
 
 <!--Why Us-->
 <section id="why_us" class="p-12 container mx-auto min-h-screen content-center">
-
-  <div class="flex flex-col space-y-3 md:space-y-5 lg:space-y-6 items-center">
-
-    <h2  class="text-primary-color font-bold font-palanquin text-xl md:text-3xl lg:text-5xl underline">
-      Why Us ? 
-    </h2>
-    <p class="italic font-light text-secondary-color text-wrap text-center text-base md:text-xl lg:text-2xl ">Because it's the simplest way to make a big difference. With just a few clicks, your contribution goes directly to the creators you love, fueling their passion and creativity. No subscriptions, no fuss – just pure support. Plus, our platform makes it easy to discover new and exciting creators, so you can always find someone whose work resonates with you.</p>
-
-  </div>
-
-</section>
-
-
-
-<!--Noodle-->
-<section id="noodle_types" class="container mx-auto min-h-screen content-center ">
-  <div
-    class=" mx-16 flex flex-col items-center justify-center"
-  >
-    <div
-      class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 space-y-2 md:space-y-4 lg:space-y-6 text-white"
+  <div class="flex flex-col space-y-5 md:space-y-8 lg:space-y-12 items-center">
+    <h2
+      class="text-primary-color font-bold font-palanquin text-xl md:text-3xl lg:text-5xl underline"
     >
-
-    
-
-
-
-
-
-    </div>
+      Why Us ?
+    </h2>
+    <p
+      class="italic font-light text-secondary-color text-wrap text-center text-base md:text-xl lg:text-2xl"
+    >
+      Because it's the simplest way to make a big difference. With just a few
+      clicks, your contribution goes directly to the creators you love, fueling
+      their passion and creativity. No subscriptions, no fuss – just pure
+      support. Plus, our platform makes it easy to discover new and exciting
+      creators, so you can always find someone whose work resonates with you.
+    </p>
   </div>
 </section>
-
 {% endblock %}

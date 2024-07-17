@@ -20,6 +20,10 @@ AWS_S3_CUSTOM_DOMAIN = "%s.s3.amazonaws.com" % AWS_STORAGE_BUCKET_NAME
 
 DEBUG = True
 
+
+MERCHANT_UUID = os.environ.get('MERCHANT_UUID')
+PAYMENT_KEY = os.environ.get ('PAYMENT_KEY')
+
 ALLOWED_HOSTS = [".vercel.app", ".now.sh", "127.0.0.1", "localhost"]
 
 LOGIN_URL = "creator:login"
